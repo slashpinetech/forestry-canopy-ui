@@ -1,0 +1,6 @@
+{
+  "extends": "es/browser",
+  "rules": {
+    "object-curly-spacing": "warn"
+  }
+}
