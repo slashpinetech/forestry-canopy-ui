@@ -1,4 +1,6 @@
+@use 'theme';
+@import 'base/colors';
 @import "variables";
 @import 'components/reset';
-@import 'components/heading';
+@import 'components/typography';
 @import "components/base";

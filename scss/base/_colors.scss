@@ -1,0 +1,28 @@
+@use 'mixins';
+@use 'sass:map';
+
+$colors: (
+  'forest': #131F1F,
+  'smoke': #EEEEED,
+  'fire': #EF9C21,
+  'pine': #213A2B,
+  'error': #CA3C1C,
+  'success': #417354,
+  'grey-1': #6F6F6F,
+  'grey-2': #8F8F8F,
+  'grey-3': #B5B5B5,
+  'primary-dark': #131F1F,
+  'primary-light': #EEEEED,
+  'secondary-dark': #213A2B,
+  'secondary-light': #EF9C21,
+) !default;
+
+$neutrals: (
+  'black': #000000,
+  'white': #ffffff,
+  'transparent': transparent,
+) !default;
+
+$color-diff: 5% !default;
+
+

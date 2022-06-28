@@ -1,0 +1,33 @@
+@use 'base/colors' as base-colors;
+@use 'base/functions';
+@use 'overrides/colors' as override-colors;
+@use 'base/mixins';
+
+$mergedColors: map-merge(base-colors.$colors, override-colors.$colors);
+
+$themeColorPalette: (
+  base-colors.$neutrals
+);
+
+@each $key, $value in $mergedColors {
+  $colorPalette: ($key: functions.create-palette($value, base-colors.$color-diff));
+
+  $themeColorPalette: map-merge($themeColorPalette, $colorPalette);
+}
+
+:root {
+  @each $key, $value in $themeColorPalette {
+    @if functions.is-map($value) {
+      @each $paletteKey, $paletteValue in $value {
+        $colorName: $key + '-' + $paletteKey;
+        @debug $colorName;
+        @include mixins.defineColor($colorName, $paletteValue);
+      }
+    }
+
+    @else {
+      @debug $value;
+      @include mixins.defineColor($key, $value);
+    }
+  }
+}

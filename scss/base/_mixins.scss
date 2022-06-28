@@ -1,0 +1,4 @@
+@mixin defineColor($name, $value) {
+  $varName: '--color--' + $name;
+  #{$varName}: #{$value};
+}

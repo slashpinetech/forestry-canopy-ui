@@ -1,0 +1,32 @@
+@import "../variables";
+
+html,
+body,
+p,
+span {
+  font-size: 1rem;
+}
+
+h1,
+.heading-1 {
+  font-family: $font-family-primary;
+  font-weight: 700;
+  font-size: 4.7rem;
+  color: $heading-primary;
+}
+
+h2,
+.heading-2 {
+  font-family: $font-family-primary;
+  font-weight: 700;
+  font-size: 2.7rem;
+  color: $heading-secondary;
+}
+
+h3,
+.heading-3 {
+  font-family: $font-family-secondary;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: $heading-secondary;
+}

@@ -1,0 +1,21 @@
+@use 'sass:map';
+
+@function create-palette($color, $diff) {
+  $palette: (
+    lighten-4: lighten($color, $diff * 4),
+    lighten-3: lighten($color, $diff * 3),
+    lighten-2: lighten($color, $diff * 2),
+    lighten-1: lighten($color, $diff),
+    base: $color,
+    darken-1: darken($color, $diff),
+    darken-2: darken($color, $diff * 2),
+    darken-3: darken($color, $diff * 3),
+    darken-4: darken($color, $diff * 4)
+  );
+
+  @return $palette;
+}
+
+@function is-map($var) {
+  @return type-of($var) == 'map';
+}

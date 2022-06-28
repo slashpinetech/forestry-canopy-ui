@@ -1,6 +1,6 @@
 const { dest, series, src, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
-const sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-sass')(require('dart-sass'));
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
@@ -20,7 +20,7 @@ const coreScssSrc = './scss/canopy-ui.scss';
 
 const scssPlugins = [
   autoprefixer(),
-  cssnano(),
+  // cssnano(),
 ];
 
 /**
@@ -32,19 +32,10 @@ function reloadTask(callback) {
   callback();
 }
 
-function componentsScssTask() {
-  return src(componentScssSrc, { sourcemaps: true })
-    .pipe(sass())
-    .pipe(postcss(scssPlugins))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(`${cssDest}/components/`, { sourcemaps: '.' }));
-}
-
 function coreScssTask() {
   return src(coreScssSrc, { sourcemaps: true })
     .pipe(sass())
     .pipe(postcss(scssPlugins))
-    .pipe(rename({ suffix: '.min' }))
     .pipe(dest(cssDest, { sourcemaps: '.' }));
 }
 
@@ -90,4 +81,4 @@ function cleanTask(callback) {
   rimraf(docsDest, callback);
 }
 
-exports.default = series(cleanTask, docsTask, assetsTask, coreScssTask, componentsScssTask, serveTask);
+exports.default = series(cleanTask, docsTask, assetsTask, coreScssTask, serveTask);
